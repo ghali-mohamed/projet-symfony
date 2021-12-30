@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+{% block title%} Liste des Articles{% endblock %}
+{% block body %}
+{% if articles %}
+<CENTER> <h1 style="color:#FAA401;">Ghali's Car</h1></CENTER>
+<CENTER>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</CENTER><br> <br>
+ <h2>Annonces disponibles</h2> <br>
+ <table id="articles" class="table table-striped">
+ <thead>
+ <tr>
+ <th>Nom d'article</th>
+ <th>Prix</th>
+ <th>Catégorie</th> 
+ <th>Action</th> 
+ </tr>
+ </thead>
+ <tbody>
+ {% for article in articles %}
+ <tr>
+ <td>{{ article.nom }}</td>
+ <td>{{ article.prix }} TND</td>
+ <td>{{ article.category.titre }}</td>
+ <td>
+ <a href="/article/{{ article.id }}" class="btn btn-dark">Détails</a>
+<a href="/article/edit/{{ article.id }}" class="btn btn-dark">Modifier</a>
+<a href="/article/delete/{{ article.id }}" class="btn btn-danger"onclick="return confirm('Etes-vous sûr de supprimer cet article?');">Supprimer</a>
+ </td>
+ </tr>
+ {% endfor %}
+ </tbody>
+ </table>
+ {% else %}
+ <p>Aucun articles</p>
+ {% endif %}
+ <div class="container">
+  <hr>
+  <p class="text-center">  Copyright &copy; 2022 </p>
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ article.nom }}{% endblock %}
+{% block body %}
+<h3>Nom d'article : <small>  {{ article.nom }}</small> </h3> 
+ <table class="table table-borderless">
+        <tbody>
+      <tr>
+        <td> <b> Catégorie:</b></td>
+        <td>{{ article.category.titre }}</td>
+         </tr>
+         <tr>
+        <td> <b>Prix :   </b></td>
+        <td>{{ article.prix }} TND</td>
+         </tr>
+         <tr>
+        <td> <b>Image :   </b></td>
+         </tr>
+         </tbody>
+         </table>
+       
+        <img src="{{ article.image }}" style="width:600px;"> <br> <br>
+
+<h4><a href="/">Retour</a></h4>
+<div class="container">
+  <hr>
+  <p class="text-center">  Copyright &copy; 2022 </p>
+</div>
+{% endblock %}
